@@ -14,8 +14,9 @@
         android:adjustViewBounds="true"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:padding="48dp"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -23,12 +24,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/learn_button"
+            android:id="@+id/learn_page_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="24dp"
@@ -36,12 +37,36 @@
             android:text="@string/learn_button"/>
 
         <Button
-            android:id="@+id/search_button"
+            android:id="@+id/search_page_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="24dp"
             android:textSize="16dp"
             android:text="@string/search_button"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/news_page_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:textSize="16dp"
+            android:text="@string/news_button"/>
+
+        <Button
+            android:id="@+id/weather_page_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:textSize="16dp"
+            android:text="@string/weather_button"/>
 
     </LinearLayout>
 
