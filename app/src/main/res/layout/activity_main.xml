@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:padding="24dp"
             android:textSize="16dp"
-            android:text="@string/learn_button"/>
+            android:text="@string/learn_page_button"/>
 
         <Button
             android:id="@+id/search_page_button"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:padding="24dp"
             android:textSize="16dp"
-            android:text="@string/search_button"/>
+            android:text="@string/search_page_button"/>
 
     </LinearLayout>
 
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:padding="24dp"
             android:textSize="16dp"
-            android:text="@string/news_button"/>
+            android:text="@string/news_page_button"/>
 
         <Button
             android:id="@+id/weather_page_button"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:padding="24dp"
             android:textSize="16dp"
-            android:text="@string/weather_button"/>
+            android:text="@string/weather_page_button"/>
 
     </LinearLayout>
 

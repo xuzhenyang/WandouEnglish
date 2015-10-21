@@ -10,7 +10,7 @@
         android:id="@+id/search_edt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="16dp"
         />
 
     <Button
@@ -19,13 +19,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:padding="10dp"
+        android:text="@string/search_button"
         />
 
     <TextView
         android:id="@+id/result_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="50dp"
+        android:paddingTop="60dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         />

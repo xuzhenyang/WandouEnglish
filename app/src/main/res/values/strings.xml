@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">WandouEnglish</string>
     <string name="start_button">Start</string>
-    <string name="learn_button">我要背单词</string>
-    <string name="search_button">我要查单词</string>
-    <string name="news_button">我要看新闻</string>
-    <string name="weather_button">我要查天气</string>
+    <string name="learn_page_button">我要背单词</string>
+    <string name="search_page_button">我要查单词</string>
+    <string name="news_page_button">我要看新闻</string>
+    <string name="weather_page_button">我要查天气</string>
+    <string name="search_button">查询</string>
 </resources>
