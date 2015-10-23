@@ -3,13 +3,7 @@ package com.idlepilot.android.wandouenglish.controller;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import com.idlepilot.android.wandouenglish.model.Word;
 
 /**
  * Created by xuzywozz on 2015/10/21.
@@ -22,15 +16,13 @@ public class AsyncSearch extends AsyncTask<String, Void, String> implements OnQu
 
     private StringBuilder mStringBuilder = new StringBuilder();
 
-    //请到 “百度翻译api” 免费注册你的app key
-    private String urlPre = "http://openapi.baidu.com/public/2.0/translate/dict/simple?client_id=jjswwEhSf5Qb44s1y7o4yTxA&q=";
-
-    private String urlTranNextEnToZh = "&from=en&to=zh";
+    private Word word = null;
 
     public AsyncSearch(OnQueryComplete queryComplete)
     {
         this.mOnQueryComplete = queryComplete;
     }
+
 /*
     //代理模式？？？
     public interface OnQueryComplete
@@ -48,30 +40,10 @@ public class AsyncSearch extends AsyncTask<String, Void, String> implements OnQu
         Log.i(TAG, tmp);
         if (tmp.isEmpty())
             return mStringBuilder.append("请输入需要翻译的内容！\n").toString();
-        try
-        {
-            tmp = URLEncoder.encode(strings[0].trim(), "utf-8");
-            url = urlPre + tmp;
-            url = url + urlTranNextEnToZh;
-            Log.i(TAG, url);
-            String result = new Fetcher().getUrl(url);
-            if (isCancelled()) return null;
-            parseJSONAndUpdate(result);
-            Log.i(TAG, mStringBuilder.toString());
-        }
-        catch (UnsupportedEncodingException e)
-        {
-            mStringBuilder.append("不支持URL编码，请更换查询内容！");
-        }
-        catch (IOException e)
-        {
-            mStringBuilder.append("IO传输错误，请重试！");
-        }
-        catch (JSONException e)
-        {
-            mStringBuilder.delete(0, mStringBuilder.length());
-            mStringBuilder.append("没有找到相关翻译！\n");
-        }
+        WordManager wordManager = new WordManager();
+        word = wordManager.getWordFromInternet(tmp);
+        word.printInfo();
+        Log.i(TAG, mStringBuilder.toString());
 
         return mStringBuilder.toString();
     }
@@ -80,10 +52,10 @@ public class AsyncSearch extends AsyncTask<String, Void, String> implements OnQu
     protected void onPostExecute(String s)
     {
         Log.i(TAG, "onPostExecute" + mStringBuilder.toString());
-        mOnQueryComplete.forResult(mStringBuilder.toString());
+        mOnQueryComplete.forResult(word);
     }
 
-    private void parseJSONAndUpdate(String s) throws JSONException
+    /*private void parseJSONAndUpdate(String s) throws JSONException
     {
         JSONObject mainObject = new JSONObject(s);
         int errorCode = mainObject.getInt("errno");
@@ -128,11 +100,11 @@ public class AsyncSearch extends AsyncTask<String, Void, String> implements OnQu
             mStringBuilder.append('\n');
         }
 
-    }
+    }*/
 
     @Override
-    public void forResult(String result)
+    public void forResult(Word word)
     {
-        mOnQueryComplete.forResult(result);
+        mOnQueryComplete.forResult(word);
     }
 }
