@@ -15,6 +15,7 @@ import com.idlepilot.android.wandouenglish.R;
 import com.idlepilot.android.wandouenglish.controller.AsyncSearch;
 import com.idlepilot.android.wandouenglish.controller.OnQueryComplete;
 import com.idlepilot.android.wandouenglish.controller.SentenceListAdapter;
+import com.idlepilot.android.wandouenglish.controller.WordManager;
 import com.idlepilot.android.wandouenglish.model.Word;
 
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class SearchActivity extends Activity implements OnQueryComplete, View.On
     private TextView mInterpret;
     private ListView mLvSentence;
     private AsyncSearch task = null;
+
+    private WordManager wm;
 
 
     @Override
@@ -80,6 +83,8 @@ public class SearchActivity extends Activity implements OnQueryComplete, View.On
     {
         task = new AsyncSearch(this);
         task.execute(mSearchEdt.getText().toString());
+        wm = new WordManager(this, "dict");
+        Log.i(TAG, "isWordExist: " + wm.isWordExist(mSearchEdt.getText().toString()));
     }
 
 }

@@ -55,52 +55,6 @@ public class AsyncSearch extends AsyncTask<String, Void, String> implements OnQu
         mOnQueryComplete.forResult(word);
     }
 
-    /*private void parseJSONAndUpdate(String s) throws JSONException
-    {
-        JSONObject mainObject = new JSONObject(s);
-        int errorCode = mainObject.getInt("errno");
-        if (errorCode != 0)
-        {
-            mStringBuilder.append("没有找到相关翻译！\n");
-            return;
-        }
-        JSONObject data = null;
-        try
-        {
-            data = mainObject.getJSONObject("data");
-        }
-        catch (JSONException e)
-        {
-//                this.cancel(true);
-//                new AsyncSearch(mOnQueryComplete, true, false).execute(st);
-        }
-        JSONArray symbols = data.getJSONArray("symbols");
-        JSONObject symbolsData = symbols.getJSONObject(0);
-        String ph_am = symbolsData.getString("ph_am");
-        String ph_en = symbolsData.getString("ph_en");
-        if (ph_am.length() > 0)
-        {
-            mStringBuilder.append("美音:[" + ph_am + "]");
-            if (ph_en.length() > 0)
-                mStringBuilder.append("  英音:[" + ph_en + "]\n\n");
-        }
-        else if (ph_en.length() > 0) mStringBuilder.append("英音:[" + ph_en + "]\n\n");
-        JSONArray parts = symbolsData.getJSONArray("parts");
-        for (int i = 0; i < parts.length(); i++)
-        {
-            JSONObject part = parts.getJSONObject(i);
-            mStringBuilder.append("词性: " + part.getString("part") + '\n');
-            Log.i(TAG, "after" + mStringBuilder.toString());
-            JSONArray means = part.getJSONArray("means");
-            for (int j = 0; j < means.length(); j++)
-            {
-                mStringBuilder.append((j + 1) + ":" + means.getString(j) + '\n');
-            }
-            if (i == parts.length() - 1) break;
-            mStringBuilder.append('\n');
-        }
-
-    }*/
 
     @Override
     public void forResult(Word word)
