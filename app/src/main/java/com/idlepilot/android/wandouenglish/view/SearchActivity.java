@@ -82,9 +82,11 @@ public class SearchActivity extends Activity implements OnQueryComplete, View.On
     public void onClick(View v)
     {
         task = new AsyncSearch(this);
-        task.execute(mSearchEdt.getText().toString());
+        //传入searchedWord以及当前Context
+        Object params[] = {mSearchEdt.getText().toString(), this};
+        task.execute(params);
         wm = new WordManager(this, "dict");
-        Log.i(TAG, "isWordExist: " + wm.isWordExist(mSearchEdt.getText().toString()));
+
     }
 
 }
