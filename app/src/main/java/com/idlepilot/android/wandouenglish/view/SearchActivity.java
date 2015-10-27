@@ -1,6 +1,7 @@
 package com.idlepilot.android.wandouenglish.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,7 @@ public class SearchActivity extends Activity implements OnQueryComplete, View.On
     private static final String TAG = "SearchActivity";
 
     private ImageButton mSearchButton;
+    private ImageButton mBackButton;
     private EditText mSearchEdt;
     private TextView mTvWord;
     private TextView mPhonogramEng;
@@ -44,6 +46,7 @@ public class SearchActivity extends Activity implements OnQueryComplete, View.On
         setContentView(R.layout.activity_search);
 
         mSearchEdt = (EditText) findViewById(R.id.edtTxt_word);
+        mBackButton = (ImageButton) findViewById(R.id.imgBtn_back);
         mSearchButton = (ImageButton) findViewById(R.id.imgBtn_search);
         mTvWord = (TextView) findViewById(R.id.tv_word);
         mPhonogramEng = (TextView) findViewById(R.id.tv_phonogram_eng);
@@ -52,6 +55,16 @@ public class SearchActivity extends Activity implements OnQueryComplete, View.On
         mLvSentence = (ListView) findViewById(R.id.lv_sentence);
 
         mSearchButton.setOnClickListener(this);
+        mBackButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(SearchActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     @Override

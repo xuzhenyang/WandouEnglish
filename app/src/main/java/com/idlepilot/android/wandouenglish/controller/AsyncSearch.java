@@ -75,6 +75,6 @@ public class AsyncSearch extends AsyncTask<Object, Void, String> implements OnQu
     @Override
     public void forResult(Word word)
     {
-        mOnQueryComplete.forResult(word);
+
     }
 }
