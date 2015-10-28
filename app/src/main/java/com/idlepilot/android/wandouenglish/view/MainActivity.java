@@ -11,6 +11,7 @@ import com.idlepilot.android.wandouenglish.R;
 public class MainActivity extends AppCompatActivity
 {
     private Button mSearchPageButton;
+    private Button mLearnPageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -19,12 +20,23 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         mSearchPageButton = (Button) findViewById(R.id.search_page_button);
+        mLearnPageButton = (Button) findViewById(R.id.learn_page_button);
+
         mSearchPageButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 Intent i = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(i);
+            }
+        });
+        mLearnPageButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(MainActivity.this, LearnActivity.class);
                 startActivity(i);
             }
         });

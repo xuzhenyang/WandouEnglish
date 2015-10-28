@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.idlepilot.android.wandouenglish"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.idlepilot.android.wandouenglish"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -21,8 +20,13 @@
         <activity android:name=".view.MainActivity">
         </activity>
         <activity android:name=".view.SearchActivity">
-            <!--android:theme="@style/AppTheme"
-            android:label="查词"-->
+
+            <!--
+            android:theme="@style/AppTheme"
+            android:label="查词"
+            -->
+        </activity>
+        <activity android:name=".view.LearnActivity">
         </activity>
     </application>
 
