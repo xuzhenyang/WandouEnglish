@@ -26,7 +26,11 @@
             android:label="查词"
             -->
         </activity>
-        <activity android:name=".view.LearnActivity">
+        <activity android:name=".view.OverviewActivity">
+        </activity>
+        <activity android:name=".view.SettingActivity">
+        </activity>
+        <activity android:name=".view.TitleActivity">
         </activity>
     </application>
 

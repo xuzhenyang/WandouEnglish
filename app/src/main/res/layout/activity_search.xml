@@ -14,21 +14,11 @@
         android:layout_height="42dp"
         >
 
-        <ImageButton
-            android:id="@+id/imgBtn_back"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:background="@android:color/transparent"
-            android:src="@drawable/btn_back_blue"
-            />
-
         <EditText
             android:id="@+id/edtTxt_word"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toLeftOf="@+id/imgBtn_search"
-            android:layout_toRightOf="@+id/imgBtn_back"
             android:hint="@string/edt_search_hint"
             android:paddingLeft="10dp"
             />
@@ -60,18 +50,6 @@
         android:textColor="#3B3C3D"
         android:textSize="24sp"
         android:textStyle="bold"/>
-
-    <ImageButton
-        android:id="@+id/imgBtn_add_to_wordlist"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/tv_word"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        android:src="@drawable/btn_add_to_wordlist"/>
 
 
     <RelativeLayout
@@ -134,6 +112,17 @@
             android:textColor="#6C6C6C"
             android:textSize="14sp"/>
 
+        <ImageButton
+            android:id="@+id/imgBtn_add_to_wordlist"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_add_to_wordlist"/>
+
 
     </RelativeLayout>
 
@@ -166,7 +155,7 @@
     <TextView
         android:id="@+id/tv_interpret"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_below="@id/basic_interpretation"
         android:layout_margin="10dp"
         android:lineSpacingMultiplier="1.2"

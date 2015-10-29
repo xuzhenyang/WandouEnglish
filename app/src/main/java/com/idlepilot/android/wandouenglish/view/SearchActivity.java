@@ -1,12 +1,8 @@
 package com.idlepilot.android.wandouenglish.view;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -22,12 +18,11 @@ import com.idlepilot.android.wandouenglish.model.Word;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SearchActivity extends Activity implements OnQueryComplete, View.OnClickListener
+public class SearchActivity extends TitleActivity implements OnQueryComplete, View.OnClickListener
 {
     private static final String TAG = "SearchActivity";
 
     private ImageButton mSearchButton;
-    private ImageButton mBackButton;
     private EditText mSearchEdt;
     private TextView mTvWord;
     private TextView mPhonogramEng;
@@ -45,8 +40,9 @@ public class SearchActivity extends Activity implements OnQueryComplete, View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        setTitle("查词");
+
         mSearchEdt = (EditText) findViewById(R.id.edtTxt_word);
-        mBackButton = (ImageButton) findViewById(R.id.imgBtn_back);
         mSearchButton = (ImageButton) findViewById(R.id.imgBtn_search);
         mTvWord = (TextView) findViewById(R.id.tv_word);
         mPhonogramEng = (TextView) findViewById(R.id.tv_phonogram_eng);
@@ -55,15 +51,6 @@ public class SearchActivity extends Activity implements OnQueryComplete, View.On
         mLvSentence = (ListView) findViewById(R.id.lv_sentence);
 
         mSearchButton.setOnClickListener(this);
-        mBackButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent(SearchActivity.this, MainActivity.class);
-                startActivity(i);
-            }
-        });
 
     }
 
