@@ -32,6 +32,10 @@
         </activity>
         <activity android:name=".view.TitleActivity">
         </activity>
+        <activity android:name=".view.LearnActivity">
+        </activity>
+        <activity android:name=".view.TestActivity">
+        </activity>
     </application>
 
 </manifest>

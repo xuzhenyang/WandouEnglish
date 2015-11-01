@@ -23,4 +23,19 @@
         app:percent="15"
         app:startAngle="270"/>
 
+    <Button
+        android:id="@+id/continue_learn_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="继续学习"/>
+
+    <Button
+        android:id="@+id/test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:layout_alignBottom="@+id/spv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
 </RelativeLayout>
