@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.idlepilot.android.wandouenglish.view.TestActivity"/>
+      <point      
+        x = "2728"      
+        y = "-100"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.idlepilot.android.wandouenglish.view.TitleActivity"/>
+      <point      
+        x = "3400"      
+        y = "340"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.idlepilot.android.wandouenglish.view.SettingActivity"/>
+      <point      
+        x = "2528"      
+        y = "800"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.idlepilot.android.wandouenglish.view.LearnActivity"/>
+      <point      
+        x = "-56"      
+        y = "224"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.idlepilot.android.wandouenglish.view.OverviewActivity"/>
+      <point      
+        x = "1684"      
+        y = "692"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.idlepilot.android.wandouenglish.view.MainActivity"/>
+      <point      
+        x = "-12"      
+        y = "904"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.idlepilot.android.wandouenglish.view.SearchActivity"/>
+      <point      
+        x = "3496"      
+        y = "1060"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.idlepilot.android.wandouenglish.view.StartActivity"/>
+      <point      
+        x = "860"      
+        y = "296"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>

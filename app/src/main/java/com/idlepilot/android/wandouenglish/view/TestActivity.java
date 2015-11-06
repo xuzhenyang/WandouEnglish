@@ -21,8 +21,13 @@ public class TestActivity extends AppCompatActivity
 //set show mode.
         swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
 
+        //禁止左右滑动
+        swipeLayout.setLeftSwipeEnabled(false);
+        swipeLayout.setRightSwipeEnabled(false);
+
 //add drag edge.(If the BottomView has 'layout_gravity' attribute, this line is unnecessary)
-        swipeLayout.addDrag(SwipeLayout.DragEdge.Top, findViewById(R.id.bottom_wrapper));
+        swipeLayout.setDragEdge(SwipeLayout.DragEdge.Top);
+        swipeLayout.setBottom(R.id.bottom_wrapper);
 
         swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener()
         {

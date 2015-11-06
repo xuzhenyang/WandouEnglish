@@ -19,10 +19,16 @@
             android:id="@+id/bottom_wrapper"
             android:layout_width="160dp"
             android:layout_height="match_parent"
-            android:background="#66ddff00"
-            android:weightSum="1"
-            android:orientation="horizontal">
+            android:background="#9affcc"
+            >
             <!--What you want to show-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="诗；韵文；诗一样的作品；富有诗意的东西；"
+                />
+
         </LinearLayout>
         <!-- Bottom View End-->
 
@@ -33,6 +39,13 @@
             android:background="#ffffff"
             android:padding="10dp">
             <!--What you want to show in SurfaceView-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Poem"
+                />
+
         </LinearLayout>
         <!-- Surface View End -->
     </com.daimajia.swipe.SwipeLayout>
