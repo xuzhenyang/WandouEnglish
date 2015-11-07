@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.idlepilot.android.wandouenglish.model.Word;
 
@@ -18,6 +19,8 @@ import java.net.URLEncoder;
  */
 public class WordManager
 {
+
+    private static final String TAG = "WordManager";
 
     public Context context = null;
     private DataBaseHelperDict dbHelper = null;
@@ -34,7 +37,9 @@ public class WordManager
     {
         this.context = paramContext;
         this.tableName = paramString;
-        this.dbHelper = new DataBaseHelperDict(paramContext, paramString);
+        //DatabaseContext重写openOrCreateDatabase 将数据库保存在sd卡
+        DatabaseContext dbContext = new DatabaseContext(paramContext);
+        this.dbHelper = new DataBaseHelperDict(dbContext, paramString);
         this.dbR = this.dbHelper.getReadableDatabase();
         this.dbW = this.dbHelper.getWritableDatabase();
     }
@@ -171,6 +176,7 @@ public class WordManager
 
     public void insertWordToDict(Word word, boolean isOverWrite)
     {
+        Log.i(TAG, "插入单词：" + word.getWord());
         if (word == null)
         {          //避免空指针异常
             return;
@@ -195,6 +201,7 @@ public class WordManager
                 else
                 {              //执行更新操作
                     dbW.update(tableName, values, "word=?", new String[]{word.getWord()});
+                    Log.i(TAG, "更新");
                 }
             }
             else

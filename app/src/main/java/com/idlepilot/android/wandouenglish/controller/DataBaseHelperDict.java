@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.File;
+
 public class DataBaseHelperDict extends SQLiteOpenHelper
 {
 
@@ -16,10 +18,12 @@ public class DataBaseHelperDict extends SQLiteOpenHelper
     public String tableName = null;
     public static int VERSION = 1;
 
+    public static final String DATABASE_NAME = "dict.db";
+
     public DataBaseHelperDict(Context context, String name, CursorFactory factory,
                               int version)
     {
-        super(context, name, factory, version);
+        super(context, DATABASE_NAME, factory, version);
         // TODO Auto-generated constructor stub
         mContext = context;
         tableName = name;
@@ -27,16 +31,22 @@ public class DataBaseHelperDict extends SQLiteOpenHelper
 
     public DataBaseHelperDict(Context context, String name, CursorFactory factory)
     {
-        this(context, name, factory, VERSION);
+        this(context, DATABASE_NAME, factory, VERSION);
         mContext = context;
         tableName = name;
     }
 
     public DataBaseHelperDict(Context context, String name)
     {
-        this(context, name, null);
+        this(context, DATABASE_NAME, null);
         mContext = context;
         tableName = name;
+    }
+
+    public DataBaseHelperDict(Context context)
+    {
+        this(context, DATABASE_NAME, null);
+        mContext = context;
     }
 
     @Override
@@ -45,7 +55,6 @@ public class DataBaseHelperDict extends SQLiteOpenHelper
         // TODO Auto-generated method stub
         db.execSQL("create table dict(word text,pse text,prone text,psa text,prona text," +
                 "interpret text, sentorig text, senttrans text)");
-
     }
 
     @Override

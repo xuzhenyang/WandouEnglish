@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.idlepilot.android.wandouenglish.R;
 import com.idlepilot.android.wandouenglish.controller.AsyncSearch;
+import com.idlepilot.android.wandouenglish.controller.DataBaseHelperDict;
 import com.idlepilot.android.wandouenglish.controller.OnQueryComplete;
 import com.idlepilot.android.wandouenglish.controller.SentenceListAdapter;
 import com.idlepilot.android.wandouenglish.controller.WordManager;
