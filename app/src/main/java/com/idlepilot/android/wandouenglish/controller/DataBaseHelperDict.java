@@ -16,7 +16,7 @@ public class DataBaseHelperDict extends SQLiteOpenHelper
 
     public Context mContext = null;
     public String tableName = null;
-    public static int VERSION = 1;
+    public static int VERSION = 2;
 
     public static final String DATABASE_NAME = "dict.db";
 
@@ -58,9 +58,22 @@ public class DataBaseHelperDict extends SQLiteOpenHelper
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2)
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
         // TODO Auto-generated method stub
+        //旧数据库版本为1，删除表pedant的c字段
+        if (oldVersion < 2)
+        {
+            db.beginTransaction();
+            try
+            {
+                db.execSQL("ALTER TABLE dict ADD COLUMN isStrange integer");
+                db.setTransactionSuccessful();
+            } finally
+            {
+                db.endTransaction();
+            }
+        }
 
     }
 
