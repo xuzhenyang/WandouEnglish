@@ -112,6 +112,8 @@
             android:textColor="#6C6C6C"
             android:textSize="14sp"/>
 
+        <!--生词本图标-->
+
         <ImageButton
             android:id="@+id/imgBtn_add_to_wordlist"
             android:layout_width="30dp"

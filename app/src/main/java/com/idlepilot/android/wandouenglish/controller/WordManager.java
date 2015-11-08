@@ -166,8 +166,7 @@ public class WordManager
                 word = contentHandler.getWord();
                 word.setWord(searchedWord);
             }
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -203,18 +202,56 @@ public class WordManager
                     dbW.update(tableName, values, "word=?", new String[]{word.getWord()});
                     Log.i(TAG, "更新");
                 }
-            }
-            else
+            } else
             {
                 dbW.insert(tableName, null, values);
                 //这里可能会发生空指针异常，到时候考虑
             }
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
 
+        } finally
+        {
+            if (cursor != null)
+                cursor.close();
         }
-        finally
+    }
+
+    public void updateWordToDict(Word word)
+    {
+        Log.i(TAG, "更新单词：" + word.getWord());
+        if (word == null)
+        {          //避免空指针异常
+            return;
+        }
+        Cursor cursor = null;
+        try
+        {
+            ContentValues values = new ContentValues();
+            values.put("word", word.getWord());
+            values.put("pse", word.getPsE());
+            values.put("prone", word.getPronE());
+            values.put("psa", word.getPsA());
+            values.put("prona", word.getPronA());
+            values.put("interpret", word.getInterpret());
+            values.put("sentorig", word.getSentOrig());
+            values.put("senttrans", word.getSentTrans());
+            values.put("isStrange", word.isStrange());
+            cursor = dbR.query(tableName, new String[]{"word"}, "word=?", new String[]{word.getWord()}, null, null, null);
+            if (cursor.getCount() > 0)
+            {
+                //执行更新操作
+                dbW.update(tableName, values, "word=?", new String[]{word.getWord()});
+                Log.i(TAG, "更新");
+            } else
+            {
+                dbW.insert(tableName, null, values);
+                //这里可能会发生空指针异常，到时候考虑
+            }
+        } catch (Exception e)
+        {
+
+        } finally
         {
             if (cursor != null)
                 cursor.close();
@@ -234,8 +271,7 @@ public class WordManager
             }
             localCursor.close();
             return false;
-        }
-        finally
+        } finally
         {
             if (localCursor != null)
                 localCursor.close();

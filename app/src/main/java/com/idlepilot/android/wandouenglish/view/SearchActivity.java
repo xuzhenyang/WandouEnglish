@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.idlepilot.android.wandouenglish.R;
 import com.idlepilot.android.wandouenglish.controller.AsyncSearch;
@@ -24,6 +25,7 @@ public class SearchActivity extends TitleActivity implements OnQueryComplete, Vi
     private static final String TAG = "SearchActivity";
 
     private ImageButton mSearchButton;
+    private ImageButton mAddToWordlist;
     private EditText mSearchEdt;
     private TextView mTvWord;
     private TextView mPhonogramEng;
@@ -33,6 +35,7 @@ public class SearchActivity extends TitleActivity implements OnQueryComplete, Vi
     private AsyncSearch task = null;
 
     private WordManager wm;
+    private Word mWord;
 
 
     @Override
@@ -50,6 +53,7 @@ public class SearchActivity extends TitleActivity implements OnQueryComplete, Vi
         mPhonogramUsa = (TextView) findViewById(R.id.tv_phonogram_usa);
         mInterpret = (TextView) findViewById(R.id.tv_interpret);
         mLvSentence = (ListView) findViewById(R.id.lv_sentence);
+        mAddToWordlist = (ImageButton) findViewById(R.id.imgBtn_add_to_wordlist);
 
         mSearchButton.setOnClickListener(this);
 
@@ -58,6 +62,7 @@ public class SearchActivity extends TitleActivity implements OnQueryComplete, Vi
     @Override
     public void forResult(Word word)
     {
+        mWord = word;
         ArrayList localArrayList = new ArrayList();
         for (int i = 0; i < word.getOrigList().size(); i++)
         {
@@ -77,6 +82,18 @@ public class SearchActivity extends TitleActivity implements OnQueryComplete, Vi
         mInterpret.setText(word.getInterpret());
         SentenceListAdapter adapter = new SentenceListAdapter(this, R.layout.sentence_list_item, localArrayList, new String[]{"sentence"}, new int[]{R.id.tv_sentence_list_item});
         mLvSentence.setAdapter(adapter);
+
+        mAddToWordlist.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                mWord.setIsStrange(0);
+                wm.updateWordToDict(mWord);
+                Toast.makeText(getApplicationContext(), "成功添加", Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "是否生词:" + mWord.isStrange());
+            }
+        });
     }
 
     @Override

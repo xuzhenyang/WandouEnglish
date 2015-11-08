@@ -18,6 +18,8 @@ public class Word
     private String interpret = null;
     private String sentOrig = null;
     private String sentTrans = null;
+    //1表示不是生词 0表示是生词 （SQLite不能存放boolean
+    private int isStrange = 1;
 
     public Word()
     {
@@ -29,6 +31,7 @@ public class Word
         this.interpret = "";
         this.sentOrig = "";
         this.sentTrans = "";
+        this.isStrange = 1;
     }
 
     public Word(String word, String psE, String pornE, String psA, String pornA, String interpret, String sentOrig, String sentTrans)
@@ -43,6 +46,19 @@ public class Word
         this.sentTrans = sentTrans;
     }
 
+    public Word(String word, String psE, String pornE, String psA, String pornA, String interpret, String sentOrig, String sentTrans, int isStrange)
+    {
+        this.word = word;
+        this.psE = psE;
+        this.pronE = pornE;
+        this.psA = psA;
+        this.pronA = pornA;
+        this.interpret = interpret;
+        this.sentOrig = sentOrig;
+        this.sentTrans = sentTrans;
+        this.isStrange = isStrange;
+    }
+
     public ArrayList<String> getOrigList()
     {
         ArrayList<String> list = new ArrayList<String>();
@@ -54,8 +70,7 @@ public class Word
             {
                 list.add(str);
             }
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -73,8 +88,7 @@ public class Word
             {
                 list.add(str);
             }
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -161,6 +175,16 @@ public class Word
         this.sentTrans = sentTrans;
     }
 
+    public int isStrange()
+    {
+        return isStrange;
+    }
+
+    public void setIsStrange(int isStrange)
+    {
+        this.isStrange = isStrange;
+    }
+
     public void printInfo()
     {
         System.out.println(this.word);
@@ -171,5 +195,6 @@ public class Word
         System.out.println(this.interpret);
         System.out.println(this.sentOrig);
         System.out.println(this.sentTrans);
+        System.out.println(this.isStrange);
     }
 }

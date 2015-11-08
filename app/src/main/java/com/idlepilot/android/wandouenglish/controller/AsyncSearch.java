@@ -50,6 +50,7 @@ public class AsyncSearch extends AsyncTask<Object, Void, String> implements OnQu
         else
         {
             word = wordManager.getWordFromInternet(tmp);
+            //这里false并没有什么卵用
             wordManager.insertWordToDict(word, false);
         }
         word.printInfo();
