@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity
 {
     private Button mSearchPageButton;
     private Button mLearnPageButton;
+    private Button mStrangeWordlistPageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity
 
         mSearchPageButton = (Button) findViewById(R.id.search_page_button);
         mLearnPageButton = (Button) findViewById(R.id.learn_page_button);
+        mStrangeWordlistPageButton = (Button) findViewById(R.id.strange_wordlist_page_button);
 
         mSearchPageButton.setOnClickListener(new View.OnClickListener()
         {
@@ -37,6 +39,15 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent i = new Intent(MainActivity.this, OverviewActivity.class);
+                startActivity(i);
+            }
+        });
+        mStrangeWordlistPageButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(MainActivity.this, StrangeWordlistActivity.class);
                 startActivity(i);
             }
         });

@@ -13,6 +13,7 @@ import org.xml.sax.InputSource;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 /**
  * Created by xuzywozz on 2015/10/23.
@@ -116,6 +117,28 @@ public class WordManager
         String str = localCursor.getString(localCursor.getColumnIndex("psa"));
         localCursor.close();
         return str;
+    }
+
+    public ArrayList<Word> getStrangeWordlist()
+    {
+        ArrayList<Word> strangeWordlist = new ArrayList<Word>();
+        Cursor cursor = dbR.rawQuery("select * from dict where isStrange = 0", null);
+        while(cursor.moveToNext())
+        {
+            Word word = new Word();
+            word.setWord(cursor.getString(0));
+            word.setPsE(cursor.getString(1));
+            word.setPronE(cursor.getString(2));
+            word.setPsA(cursor.getString(3));
+            word.setPronA(cursor.getString(4));
+            word.setInterpret(cursor.getString(5));
+            word.setSentOrig(cursor.getString(6));
+            word.setSentTrans(cursor.getString(7));
+            word.setIsStrange(cursor.getInt(8));
+            strangeWordlist.add(word);
+        }
+        cursor.close();
+        return strangeWordlist;
     }
 
     public Word getWordFromDict(String searchedWord)
