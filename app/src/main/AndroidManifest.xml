@@ -39,6 +39,8 @@
         </activity>
         <activity android:name=".view.StrangeWordlistActivity" >
         </activity>
+        <activity android:name=".view.NewsActivity" >
+        </activity>
     </application>
 
 </manifest>

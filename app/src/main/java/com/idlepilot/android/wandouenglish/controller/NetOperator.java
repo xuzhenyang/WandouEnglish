@@ -12,8 +12,10 @@ import java.net.URL;
 public class NetOperator
 {
 
-    public static final String urlPre = "http://dict-co.iciba.com/api/dictionary.php?w=";
-    public static final String urlLow = "&key=B3CF1E57148A7E7AA82FC64C2719EEAD";
+//    public static final String urlPre = "http://dict-co.iciba.com/api/dictionary.php?w=";
+//    public static final String urlLow = "&key=B3CF1E57148A7E7AA82FC64C2719EEAD";
+
+    public static final String urlPre = "http://115.28.220.95:4321/";
 
     public static InputStream getInputStreamByUrl(String urlStr)
     {

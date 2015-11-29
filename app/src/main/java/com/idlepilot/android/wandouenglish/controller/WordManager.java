@@ -164,7 +164,7 @@ public class WordManager
         return word;
     }
 
-    public Word getWordFromInternet(String searchedWord)
+    /*public Word getWordFromInternet(String searchedWord)
     {
         Word word = null;
         String tempWord = searchedWord;
@@ -187,6 +187,35 @@ public class WordManager
                 ContentHandler contentHandler = new ContentHandler();
                 xmlParser.parseJinShanXml(contentHandler, new InputSource(reader));
                 word = contentHandler.getWord();
+                word.setWord(searchedWord);
+            }
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return word;
+    }*/
+
+    public Word getWordFromInternet(String searchedWord)
+    {
+        Word word = null;
+        String tempWord = searchedWord;
+        if (tempWord == null && tempWord.equals(""))
+            return null;
+        char[] array = tempWord.toCharArray();
+        if (array[0] > 256)           //是中文，或其他语言的的简略判断
+            tempWord = "_" + URLEncoder.encode(tempWord);
+        InputStream in = null;
+        String str = null;
+        try
+        {
+            String tempUrl = NetOperator.urlPre + tempWord;
+            in = NetOperator.getInputStreamByUrl(tempUrl);    //从网络获得输入流
+            if (in != null)
+            {
+                JsonUtils ju = new JsonUtils();
+                InputStreamReader reader = new InputStreamReader(in, "utf-8");        //最终目的获得一个InputSource对象用于传入形参
+                word = ju.parseJson(in);
                 word.setWord(searchedWord);
             }
         } catch (Exception e)

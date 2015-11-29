@@ -43,15 +43,15 @@ public class AsyncSearch extends AsyncTask<Object, Void, String> implements OnQu
             return mStringBuilder.append("请输入需要翻译的内容！\n").toString();
         WordManager wordManager = new WordManager((Context) params[1], "dict");
         Log.i(TAG, "isWordExist: " + wordManager.isWordExist(tmp));
-        if (wordManager.isWordExist(tmp))
+/*        if (wordManager.isWordExist(tmp))
         {
             word = wordManager.getWordFromDict(tmp);
         }
-        else
+        else*/
         {
             word = wordManager.getWordFromInternet(tmp);
             //这里false并没有什么卵用
-            wordManager.insertWordToDict(word, false);
+//            wordManager.insertWordToDict(word, false);
         }
         word.printInfo();
         Log.i(TAG, mStringBuilder.toString());
